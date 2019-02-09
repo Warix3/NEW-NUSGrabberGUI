@@ -1122,17 +1122,17 @@ namespace NUSGrabberGUI
                 ForceRefresh(GUSearchBox, "Parsing Data...");
                 WriteDebugLog("Parsing data gathered from " + request + ".");
                 int tablecount = 1;
-                foreach (HtmlAgilityPack.HtmlNode table in hdoc.GetElementbyId("mw-content-text").Elements("table"))
+                foreach (HtmlAgilityPack.HtmlNode table in hdoc.GetElementbyId("mw-content-text").Descendants("table"))
                 {
                     switch (tablecount)
                     {
-                        case 7:
+                        case 6:
                             {
-                                foreach (HtmlAgilityPack.HtmlNode tr in table.Elements("tr"))
+                                foreach (HtmlAgilityPack.HtmlNode tr in table.Descendants("tr"))
                                 {
                                     int columncount = 1;
                                     ListItem cbi = new ListItem();
-                                    foreach (HtmlAgilityPack.HtmlNode td in tr.Elements("td"))
+                                    foreach (HtmlAgilityPack.HtmlNode td in tr.Descendants("td"))
                                     {
                                         //TITLE
                                         if (columncount == 1)
@@ -1197,11 +1197,11 @@ namespace NUSGrabberGUI
                             }
                         case 3:
                             {
-                                foreach (HtmlAgilityPack.HtmlNode tr in table.Elements("tr"))
+                                foreach (HtmlAgilityPack.HtmlNode tr in table.Descendants("tr"))
                                 {
                                     int columncount = 1;
                                     ListItem cbisys = new ListItem();
-                                    foreach (HtmlAgilityPack.HtmlNode td in tr.Elements("td"))
+                                    foreach (HtmlAgilityPack.HtmlNode td in tr.Descendants("td"))
                                     {
                                         //TITLE
                                         if (columncount == 1)
